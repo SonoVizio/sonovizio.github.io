@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-visual-mode="default" data-reduce-motion="auto" data-link-style="underline">
+<html lang="en" data-visual-mode="default" data-reduce-motion="auto" data-link-style="plain">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,20 +22,20 @@
   <header>
     <div class="wrap">
       <div class="topbar" role="navigation" aria-label="Primary">
-        <div class="brand" aria-label="SonoVizio home">
-          <div class="logo" aria-hidden="true"></div>
+        <a href="#" class="brand" aria-label="SonoVizio home">
+          <div class="logo" aria-hidden="true">
+            <img src="logo.svg" alt="">
+          </div>
           <div>
             <p class="brand-title">SonoVizio</p>
             <p class="brand-sub">See the world through sound</p>
           </div>
-        </div>
+        </a>
 
         <nav aria-label="Page sections">
           <a href="#how">How it helps</a>
           <a href="#join">Join</a>
           <a href="#faq">FAQ</a>
-          <a href="#research">Research</a>
-          <a href="#privacy">Privacy</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -43,7 +43,7 @@
           <button class="btn" type="button" id="openA11y" aria-haspopup="dialog" aria-controls="a11yModal">
             Accessibility
           </button>
-          <a class="btn primary" href="#join">Join the mission</a>
+          <a class="btn primary" href="#join">Join mission</a>
         </div>
       </div>
     </div>
@@ -54,32 +54,75 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-grid">
         <div>
-          <h1 id="hero-title">See the world through sound</h1>
+          <h1 id="hero-title">See the world <br>through sound</h1>
           <p>
-            SonoVizio is an early-stage research project to help people with low vision or blindness access visual information
-            through sound. Your real experience shapes what we build next.
+            SonoVizio is a research project exploring how to help people with low vision or blindness access visual information
+            through sound. Your perspective helps us build what actually matters.
           </p>
 
           <div class="pill-row" aria-label="Project highlights">
             <span class="pill">Accessible-first</span>
             <span class="pill">Worldwide</span>
-            <span class="pill">Built with the community</span>
+            <span class="pill">Community-led</span>
             <span class="pill">Remote participation</span>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Quick start">
-          <h2>Start here</h2>
+        <div class="hero-graphics">
+          <div class="visual-container" aria-hidden="true">
+            <svg class="wave-graphic" id="heroWave" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--primary)"/>
+                  <stop offset="100%" stop-color="var(--accent)"/>
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <clipPath id="wave-clip">
+                  <rect x="50" y="0" width="300" height="240" />
+                </clipPath>
+              </defs>
 
-          <!-- Replace with your real form URL -->
-          <a class="btn primary" href="https://forms.gle/R2E8GR5RMy9RYmkv5" target="_blank" rel="noopener">
-            Join the Mission
-          </a>
-          <p style="margin-top: 10px">
-            Choose how you'd like to be involved: participant, observer, or partner.
-            You can change your role later.
-          </p>
-        </aside>
+              <!-- Decorative elements -->
+              <circle cx="200" cy="120" r="100" stroke="var(--primary)" stroke-opacity="0.05" stroke-dasharray="4 8" />
+              <circle cx="200" cy="120" r="60" stroke="var(--accent)" stroke-opacity="0.1" stroke-dasharray="2 4" />
+
+              <!-- Wave 1 (Scrolling Oscilloscope - constant amplitude) -->
+              <g clip-path="url(#wave-clip)">
+                <path d="M-50 120 Q 0 40, 50 120 T 150 120 T 250 120 T 350 120 T 450 120 T 550 120 T 650 120 T 750 120" stroke="url(#wave-grad)" stroke-width="2" stroke-opacity="0.3" stroke-linecap="round">
+                  <animateTransform attributeName="transform" type="translate" from="0" to="-200" dur="4s" repeatCount="indefinite" />
+                </path>
+              </g>
+
+              <!-- Wave 2 (medium amplitude pulse) -->
+              <path stroke="url(#wave-grad)" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                  values="M50 120 Q 100 180, 150 120 T 250 120 T 350 120;
+                          M50 120 Q 100 60, 150 120 T 250 120 T 350 120;
+                          M50 120 Q 100 180, 150 120 T 250 120 T 350 120" />
+              </path>
+
+              <!-- Wave 3 (smooth active pulse) -->
+              <path stroke="url(#wave-grad)" stroke-width="3" filter="url(#glow)" stroke-linecap="round">
+                <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                  values="M50 120 Q 75 60, 100 120 T 150 120 T 200 120 T 250 120 T 300 120 T 350 120;
+                          M50 120 Q 75 180, 100 120 T 150 120 T 200 120 T 250 120 T 300 120 T 350 120;
+                          M50 120 Q 75 60, 100 120 T 150 120 T 200 120 T 250 120 T 300 120 T 350 120" />
+              </path>
+            </svg>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary large" href="https://forms.gle/R2E8GR5RMy9RYmkv5" target="_blank" rel="noopener">
+              Join the mission
+            </a>
+            <p class="hint">Choose your role: participant, observer, or partner.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -92,111 +135,90 @@
 
       <div class="grid-3">
         <article class="card" aria-labelledby="c1-title">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
           <h3 id="c1-title">Hear visual information</h3>
           <p>
-            It’s about making direct conversion of visual information into sound and leaving your brain to figure out how it interprets it.<br/>
-            When trained, you'll be able to perceive any type of visual information - from images to videos.
+            Direct image-to-sound mapping that relies on <strong>brain neuroplasticity</strong>. You'll learn to perceive shapes, colors, and motion through detailed auditory cues, effectively "seeing" through sound.
           </p>
-
         </article>
 
         <article class="card" aria-labelledby="c2-title">
-          <h3 id="c2-title">Navigate space more confidently</h3>
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          </div>
+          <h3 id="c2-title">Navigate space confidently</h3>
           <p>
-            It's about <strong>usable cues</strong> that help you keep orientation and move with
-            more confidence — especially in unfamiliar places.<br/>
-            You will hear objects around you, their distance, and movement — all in real time.
+            Real-world navigation with spatial awareness. Hear where objects are, their distance, movement, and <strong>even identify what they are</strong>, providing confidence in both familiar and new environments.
           </p>
-
         </article>
 
         <article class="card" aria-labelledby="c3-title">
-          <h3 id="c3-title">Make computer interactions comfortable</h3>
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 id="c3-title">Interactive UI Explorer</h3>
           <p>
-            We aim for <strong>convenient</strong> and <strong>fast</strong> interaction:
-            clearer focus, fewer traps, less guessing, more control.
-            You will hear interface elements, their state, and changes — all in real time.
+            The next generation of screen readers. Instead of just text, hear <strong>fonts, colors, and precise element positions</strong>. It provides an intuitive mental map of digital interfaces for effortless productivity.
           </p>
-
         </article>
       </div>
-
-      <p class="section-intro" style="margin-top:18px;">
-        If you’ve ever felt that tools were technically accessible, but painful in reality, your perspective can shape what we build next.
-      </p>
     </section>
 
     <!-- JOIN -->
     <section id="join" aria-labelledby="join-title">
-      <h2 class="section-title" id="join-title">Join the mission. Choose your role.</h2>
+      <h2 class="section-title" id="join-title">How to get involved</h2>
       <p class="section-intro">
-        No technical background required. Just your real experience — and a willingness to help steer something that could matter.
+        No technical background required. Just your experience and a willingness to help steer something that could matter.
       </p>
 
-      <div class="grid-3" style="align-items: stretch;">
+      <div class="grid-3">
         <article class="card" aria-labelledby="r1-title">
-          <div class="role-title">
-            <h3 id="r1-title" style="margin:0;">Participant</h3>
-            <span class="role-tag">Core audience</span>
-          </div>
-          <p class="muted" style="margin-top:10px;">
-            For people with low vision or blindness who use a computer.
-          </p>
+          <span class="role-tag">Core audience</span>
+          <h3 id="r1-title">Participant</h3>
           <p>
-            You’ll share how you work today and what you need most. Later, you can optionally test early prototypes.
+            For people with low vision or blindness who use a computer. Share how you work today and optionally test early prototypes.
           </p>
-          <p class="perk">
-            <strong>Perk:</strong> Early access, direct influence on decisions, and <strong>lifetime access after release</strong>.
-          </p>
+          <div class="perk">
+            <strong>Perk:</strong> Lifetime access to the platform after release.
+          </div>
           <a class="btn primary" href="https://forms.gle/WxX2tEGM5Qs7UnwQ8" target="_blank" rel="noopener">
-            Join
+            Join as Participant
           </a>
         </article>
 
         <article class="card" aria-labelledby="r2-title">
-          <div class="role-title">
-            <h3 id="r2-title" style="margin:0;">Observer</h3>
-            <span class="role-tag">Follow & help</span>
-          </div>
-          <p class="muted" style="margin-top:10px;">
-            For anyone who wants to follow progress and occasionally help — including accessibility specialists, designers, developers, and allies.
-          </p>
+          <span class="role-tag">Follow & help</span>
+          <h3 id="r2-title">Observer</h3>
           <p>
-            Receive updates, answer occasional short questions, and help share the project with the right people.
+            For accessibility specialists, designers, developers, and allies. Receive updates and help share the project.
           </p>
-          <p class="perk">
-            <strong>Perk:</strong> Progress updates, lightweight involvement, and a front-row seat to how the project evolves.
-          </p>
-          <a class="btn primary" href="https://forms.gle/WxX2tEGM5Qs7UnwQ8" target="_blank" rel="noopener">
-            Join
+          <div class="perk">
+            <strong>Perk:</strong> A front-row seat to how the project evolves.
+          </div>
+          <a class="btn" href="https://forms.gle/WxX2tEGM5Qs7UnwQ8" target="_blank" rel="noopener">
+            Join as Observer
           </a>
         </article>
 
         <article class="card" aria-labelledby="r3-title">
-          <div class="role-title">
-            <h3 id="r3-title" style="margin:0;">Partner</h3>
-            <span class="role-tag">Support the mission</span>
-          </div>
-          <p class="muted" style="margin-top:10px;">
-            For organizations and individuals who can support through funding, outreach, expertise, equipment, or collaboration.
-          </p>
+          <span class="role-tag">Partnership</span>
+          <h3 id="r3-title">Partner</h3>
           <p>
-            Help turn the mission into real-world impact with clear milestones and transparent communication.
+            For organizations and individuals who can support through funding, outreach, expertise, or equipment.
           </p>
-          <p class="perk">
-            <strong>Perk:</strong> Direct contact, clear priorities, and a transparent path from support to impact.
-          </p>
-          <a class="btn primary" href="https://forms.gle/WxX2tEGM5Qs7UnwQ8" target="_blank" rel="noopener">
-            Join
+          <div class="perk">
+            <strong>Perk:</strong> Direct impact on project priorities.
+          </div>
+          <a class="btn" href="https://forms.gle/WxX2tEGM5Qs7UnwQ8" target="_blank" rel="noopener">
+            Contact as Partner
           </a>
         </article>
       </div>
 
-      <p class="section-intro" style="margin-top:18px;">
-        You can change your role later. You can leave anytime.
-      </p>
-      <p class="section-intro" style="margin-top:0;">
-        What happens next: we may email you up to twice per month with short questions or updates, and only if you opt in.
+      <p class="section-intro" style="margin-top: 32px;">
+        You can change your role later. We keep communication minimal—at most twice per month.
       </p>
     </section>
 
@@ -248,64 +270,39 @@
       </details>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research" aria-labelledby="research-title">
-      <h2 class="section-title" id="research-title">Research and transparency</h2>
-      <p class="section-intro">
-        SonoVizio is developed as part of PhD-level research in sensory substitution and accessibility.
-        That adds structure and accountability — but the direction is guided by community feedback.
-      </p>
-      <div class="card">
-        <p style="margin:0; color: var(--muted);">
-          We test assumptions with real users, document what works and what does not, and allow the technical approach to evolve as we learn.
+    <!-- RESEARCH & PRIVACY -->
+    <div class="footer-sections">
+      <section id="research" aria-labelledby="research-title">
+        <h2 class="section-title small" id="research-title">PhD Research</h2>
+        <p>
+          SonoVizio is developed as part of PhD-level research in sensory substitution. This adds structure and accountability, guided by community feedback.
         </p>
-      </div>
-    </section>
+      </section>
 
-    <!-- PRIVACY -->
-    <section id="privacy" aria-labelledby="privacy-title">
-      <h2 class="section-title" id="privacy-title">Privacy</h2>
-      <p class="section-intro">
-        We collect only what we need to communicate and understand your needs. <strong>We do not sell personal data.</strong>
-      </p>
-      <div class="card">
-        <p style="margin-top:0;"><strong>We may collect:</strong></p>
-        <ul>
-          <li>Contact info (only if you choose to share it)</li>
-          <li>What you tell us about your devices and workflow (optional)</li>
-        </ul>
-        <p class="muted">
-          You can request deletion of your data anytime by emailing:
-          <a href="mailto:sonovizio.project@gmail.com?subject=SonoVizio%20Data%20Deletion%20Request">sonovizio.project@gmail.com</a>
+      <section id="privacy" aria-labelledby="privacy-title">
+        <h2 class="section-title small" id="privacy-title">Privacy</h2>
+        <p>
+          We collect only what we need to communicate. We do not sell personal data. You can request deletion at any time.
         </p>
-      </div>
-    </section>
+      </section>
 
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 class="section-title" id="contact-title">Contact</h2>
-      <p class="section-intro">
-        Questions, feedback, partnership ideas, or accessibility issues:
-      </p>
-      <div class="card">
-        <p style="margin-top:0; margin-bottom:0;">
-          Email: <a href="mailto:sonovizio.project@gmail.com">sonovizio.project@gmail.com</a>
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 class="section-title small" id="contact-title">Contact</h2>
+        <p>
+          <a href="mailto:sonovizio.project@gmail.com">sonovizio.project@gmail.com</a>
         </p>
-        <p class="muted" style="margin:8px 0 0 0;">
-          Website: <a href="https://sonovizio.github.io" target="_blank" rel="noopener">sonovizio.github.io</a>
+        <p style="margin-top: 8px;">
+          <a href="https://github.com/sonovizio" target="_blank" rel="noopener">GitHub Project</a>
         </p>
-        <p class="muted" style="margin:8px 0 0 0;">
-          GitHub: <a href="https://github.com/sonovizio" target="_blank" rel="noopener">SonoVizio</a>
-        </p>
-      </div>
-    </section>
+      </section>
+    </div>
 
   </main>
 
   <footer>
-    <div class="wrap">
-      <p style="margin:0 0 8px 0;">© <span id="year"></span> SonoVizio</p>
-      <p style="margin:0;">Built on GitHub Pages.</p>
+    <div class="wrap" style="text-align: center;">
+      <p style="margin: 0 0 12px 0; font-weight: 700; color: var(--text);">SonoVizio</p>
+      <p style="margin: 0; opacity: 0.6;">© <span id="year"></span> — Building an accessible future through sound.</p>
     </div>
   </footer>
 
@@ -485,6 +482,18 @@
         fontScaleVal.textContent = Math.round(state.fontScale * 100) + "%";
         lineHeightVal.textContent = Number(state.lineHeight).toFixed(2);
         letterSpacingVal.textContent = Number(state.letterSpacing).toFixed(2) + "em";
+
+        // SVG Animation handling
+        const wave = document.getElementById("heroWave");
+        if (wave) {
+          const shouldReduce = state.reduceMotion === 'on' ||
+            (state.reduceMotion === 'auto' && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+          if (shouldReduce && wave.pauseAnimations) {
+            wave.pauseAnimations();
+          } else if (wave.unpauseAnimations) {
+            wave.unpauseAnimations();
+          }
+        }
       }
 
       function readStateFromControls() {
@@ -552,6 +561,11 @@
       [visualMode, linkStyle, fontScale, lineHeight, letterSpacing, reduceMotion].forEach(el => {
         el.addEventListener("input", () => applyPreview(readStateFromControls()));
         el.addEventListener("change", () => applyPreview(readStateFromControls()));
+      });
+
+      // Handle system reduce-motion changes
+      window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
+        applyPreview(readStateFromControls());
       });
 
       // Buttons
